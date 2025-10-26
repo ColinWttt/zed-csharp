@@ -1,3 +1,9 @@
+(invocation_expression
+  function: (identifier) @function.call)
+
+(member_access_expression
+  name: (identifier) @property)
+  
 ;; Methods
 (method_declaration name: (identifier) @function)
 (local_function_statement name: (identifier) @function)
