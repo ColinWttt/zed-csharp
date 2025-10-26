@@ -1,9 +1,3 @@
-(invocation_expression
-  function: (identifier) @function.call)
-
-(member_access_expression
-  name: (identifier) @property)
-  
 ;; Methods
 (method_declaration name: (identifier) @function)
 (local_function_statement name: (identifier) @function)
@@ -260,3 +254,19 @@
 
 ;; Method calls
 (invocation_expression (member_access_expression name: (identifier) @function))
+
+;;  -----------------fork-----------------
+
+(invocation_expression
+  function: (identifier) @function.call)
+
+(member_access_expression
+  name: (identifier) @property)
+
+;; --- Enum reference highlighting ---
+(member_access_expression
+  expression: (identifier) @type)
+
+;; verbatim identifier（如 @event）
+;; 使用 builtin 类型，安全且不覆盖 LSP
+; (verbatim_identifier) @variable.builtin
